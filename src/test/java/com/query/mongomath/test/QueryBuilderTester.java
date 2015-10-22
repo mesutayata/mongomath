@@ -1,0 +1,31 @@
+package com.query.mongomath.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.Document;
+import org.junit.Test;
+
+import com.query.mongomath.DBQueryBuilder;
+import com.query.mongomath.WrongFormatException;
+
+public class QueryBuilderTester
+{
+
+	@Test
+	public void test() throws WrongFormatException{
+		
+		List<String> list = new ArrayList<String>();
+
+		list.add("key1=value1");
+		list.add("key2>value2");
+		list.add("key3!=value3");
+		list.add("key4.nested1.name=%abc");
+		list.add("key4.nested1.count>100");
+		
+		System.out.println("Input: " + list);
+		Document doc = DBQueryBuilder.createQuery(list);
+		System.out.println("Output: " + doc.toJson());
+	}
+	
+}
