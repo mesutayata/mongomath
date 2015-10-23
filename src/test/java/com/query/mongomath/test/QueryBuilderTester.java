@@ -20,8 +20,8 @@ public class QueryBuilderTester
 		list.add("key1=value1");
 		list.add("key2>value2");
 		list.add("key3!=value3");
-		list.add("key4.nested1.name=%abc");
-		list.add("key4.nested1.count>100");
+		list.add("key4.metric.name = %abc , key5.metric.avg > 34.56");
+		list.add("key4.metric.count>100");
 		
 		System.out.println("Input: " + list);
 		Document doc = DBQueryBuilder.createQuery(list);
